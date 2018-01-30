@@ -82,11 +82,11 @@
             </objects>
             <point key="canvasLocation" x="2425" y="58"/>
         </scene>
-        <!--Item-->
+        <!--Navigation Controller-->
         <scene sceneID="s9H-dS-TC5">
             <objects>
                 <navigationController id="ERx-Hf-RIA" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="wza-82-4ML"/>
+                    <tabBarItem key="tabBarItem" systemItem="favorites" id="wza-82-4ML"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Lsv-gN-fRq">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -99,10 +99,10 @@
             </objects>
             <point key="canvasLocation" x="750" y="367"/>
         </scene>
-        <!--Second-->
+        <!--Favorites-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
-                <viewController id="8rJ-Kc-sve" customClass="FavViewController" sceneMemberID="viewController">
+                <viewController id="8rJ-Kc-sve" customClass="FavViewController" customModule="IEat" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -138,9 +138,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Second" image="second" id="cPa-gy-q4n"/>
-                    <navigationItem key="navigationItem" id="ZDY-Ct-xGC"/>
+                    <tabBarItem key="tabBarItem" systemItem="favorites" id="cPa-gy-q4n"/>
+                    <navigationItem key="navigationItem" title="Favorites" id="ZDY-Ct-xGC"/>
                     <connections>
+                        <outlet property="table" destination="cZc-H6-zAH" id="p4c-yO-UTA"/>
                         <segue destination="eC8-ec-f8y" kind="show" identifier="FavToDetail" id="CwA-Ca-DbB"/>
                     </connections>
                 </viewController>
@@ -221,7 +222,6 @@
     </scenes>
     <resources>
         <image name="first" width="30" height="30"/>
-        <image name="second" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="CwA-Ca-DbB"/>
