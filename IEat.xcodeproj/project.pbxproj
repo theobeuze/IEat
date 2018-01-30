@@ -8,13 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		E9DD55192020A87300A66437 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DD55182020A87300A66437 /* AppDelegate.swift */; };
-		E9DD551B2020A87300A66437 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DD551A2020A87300A66437 /* FirstViewController.swift */; };
-		E9DD551D2020A87300A66437 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DD551C2020A87300A66437 /* SecondViewController.swift */; };
+		E9DD551B2020A87300A66437 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DD551A2020A87300A66437 /* HomeViewController.swift */; };
+		E9DD551D2020A87300A66437 /* FavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DD551C2020A87300A66437 /* FavViewController.swift */; };
 		E9DD55202020A87300A66437 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9DD551E2020A87300A66437 /* Main.storyboard */; };
 		E9DD55222020A87300A66437 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9DD55212020A87300A66437 /* Assets.xcassets */; };
 		E9DD55252020A87300A66437 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9DD55232020A87300A66437 /* LaunchScreen.storyboard */; };
 		E9DD55302020A87400A66437 /* IEatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DD552F2020A87400A66437 /* IEatTests.swift */; };
 		E9DD553B2020A87400A66437 /* IEatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DD553A2020A87400A66437 /* IEatUITests.swift */; };
+		E9DD55492020B11300A66437 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DD55482020B11300A66437 /* MapViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,8 +38,8 @@
 /* Begin PBXFileReference section */
 		E9DD55152020A87300A66437 /* IEat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IEat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9DD55182020A87300A66437 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E9DD551A2020A87300A66437 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		E9DD551C2020A87300A66437 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		E9DD551A2020A87300A66437 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		E9DD551C2020A87300A66437 /* FavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavViewController.swift; sourceTree = "<group>"; };
 		E9DD551F2020A87300A66437 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E9DD55212020A87300A66437 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E9DD55242020A87300A66437 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +50,7 @@
 		E9DD55362020A87400A66437 /* IEatUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IEatUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9DD553A2020A87400A66437 /* IEatUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IEatUITests.swift; sourceTree = "<group>"; };
 		E9DD553C2020A87400A66437 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E9DD55482020B11300A66437 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,12 +102,13 @@
 			isa = PBXGroup;
 			children = (
 				E9DD55182020A87300A66437 /* AppDelegate.swift */,
-				E9DD551A2020A87300A66437 /* FirstViewController.swift */,
-				E9DD551C2020A87300A66437 /* SecondViewController.swift */,
+				E9DD551A2020A87300A66437 /* HomeViewController.swift */,
+				E9DD551C2020A87300A66437 /* FavViewController.swift */,
 				E9DD551E2020A87300A66437 /* Main.storyboard */,
 				E9DD55212020A87300A66437 /* Assets.xcassets */,
 				E9DD55232020A87300A66437 /* LaunchScreen.storyboard */,
 				E9DD55262020A87300A66437 /* Info.plist */,
+				E9DD55482020B11300A66437 /* MapViewController.swift */,
 			);
 			path = IEat;
 			sourceTree = "<group>";
@@ -262,9 +265,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E9DD551D2020A87300A66437 /* SecondViewController.swift in Sources */,
+				E9DD551D2020A87300A66437 /* FavViewController.swift in Sources */,
 				E9DD55192020A87300A66437 /* AppDelegate.swift in Sources */,
-				E9DD551B2020A87300A66437 /* FirstViewController.swift in Sources */,
+				E9DD551B2020A87300A66437 /* HomeViewController.swift in Sources */,
+				E9DD55492020B11300A66437 /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
