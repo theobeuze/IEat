@@ -11,6 +11,7 @@
 		E9CB3DF52020B8A3005976AA /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CB3DF42020B8A3005976AA /* Ingredient.swift */; };
 		E9CB3DF72020B8F9005976AA /* Step.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CB3DF62020B8F9005976AA /* Step.swift */; };
 		E9CB3DF92020BBD0005976AA /* FavRetriever.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CB3DF82020BBD0005976AA /* FavRetriever.swift */; };
+		E9CB3DFB2021BAAC005976AA /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CB3DFA2021BAAC005976AA /* DetailViewController.swift */; };
 		E9DD55192020A87300A66437 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DD55182020A87300A66437 /* AppDelegate.swift */; };
 		E9DD551B2020A87300A66437 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DD551A2020A87300A66437 /* HomeViewController.swift */; };
 		E9DD551D2020A87300A66437 /* FavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DD551C2020A87300A66437 /* FavViewController.swift */; };
@@ -44,6 +45,7 @@
 		E9CB3DF42020B8A3005976AA /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
 		E9CB3DF62020B8F9005976AA /* Step.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Step.swift; sourceTree = "<group>"; };
 		E9CB3DF82020BBD0005976AA /* FavRetriever.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavRetriever.swift; sourceTree = "<group>"; };
+		E9CB3DFA2021BAAC005976AA /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		E9DD55152020A87300A66437 /* IEat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IEat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9DD55182020A87300A66437 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E9DD551A2020A87300A66437 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 		E9DD55172020A87300A66437 /* IEat */ = {
 			isa = PBXGroup;
 			children = (
+				E9CB3DFA2021BAAC005976AA /* DetailViewController.swift */,
 				E9CB3DED2020B6DA005976AA /* Data */,
 				E9DD55182020A87300A66437 /* AppDelegate.swift */,
 				E9DD551A2020A87300A66437 /* HomeViewController.swift */,
@@ -304,6 +307,7 @@
 				E9DD551D2020A87300A66437 /* FavViewController.swift in Sources */,
 				E9DD55192020A87300A66437 /* AppDelegate.swift in Sources */,
 				E9CB3DF92020BBD0005976AA /* FavRetriever.swift in Sources */,
+				E9CB3DFB2021BAAC005976AA /* DetailViewController.swift in Sources */,
 				E9CB3DF52020B8A3005976AA /* Ingredient.swift in Sources */,
 				E9CB3DF72020B8F9005976AA /* Step.swift in Sources */,
 				E9DD551B2020A87300A66437 /* HomeViewController.swift in Sources */,

@@ -9,4 +9,12 @@
 class Step {
     
     var description: String?
+    
+    init?(json: [String: Any]) {
+        guard let description = json["description"] as? String
+            else {
+                return nil
+        }
+        self.description = description
+    }
 }

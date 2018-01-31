@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FavViewController: UIViewController, FavDelegate, UITableViewDataSource {
+class FavViewController: UIViewController, FavDelegate, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet var table: UITableView?
     
@@ -42,6 +42,20 @@ class FavViewController: UIViewController, FavDelegate, UITableViewDataSource {
         let cell = UITableViewCell()
         cell.textLabel?.text = favs?[indexPath.row].name ?? ""
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let fav = favs?[indexPath.row] {
+            self.performSegue(withIdentifier: "FavToDetail", sender: fav)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "FavToDetail" {
+            let destinationVC = segue.destination as? DetailViewController
+            let fav = sender as? Recipe
+            destinationVC?.recipe = fav
+        }
     }
 }
 

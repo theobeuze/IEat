@@ -32,15 +32,23 @@ class FavRetriever {
                     var favs = [Recipe]()
                     for var fav in json {
                         let newFav = Recipe()
+                        var newIngredients = [Ingredient]()
+                        var newSteps = [Step]()
                         if let name = fav["name"] as? String {
                             newFav.name = name
                         }
-                        if let ingredients = fav["ingredients"] as? [Ingredient] {
-                            newFav.ingredients = ingredients
+                        for case let ingredients in fav["ingredients"] as! [[String: Any]] {
+                            if let ingredient = Ingredient(json: ingredients) {
+                                newIngredients.append(ingredient)
+                            }
                         }
-                        if let steps = fav["steps"] as? [Step] {
-                            newFav.steps = steps
+                        newFav.ingredients = newIngredients
+                        for case let steps in fav["steps"] as! [[String: Any]] {
+                            if let step = Step(json: steps) {
+                                newSteps.append(step)
+                            }
                         }
+                        newFav.steps = newSteps
                         favs.append(newFav)
                     }
                     self?.delegate?.didFetch(favs: favs)
