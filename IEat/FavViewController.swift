@@ -12,6 +12,8 @@ class FavViewController: UIViewController, FavDelegate, UITableViewDataSource, U
     
     @IBOutlet var table: UITableView?
     
+    var refreshControl: UIRefreshControl!
+    
     let source = FavRetriever()
     var favs: [Recipe]?
 
@@ -21,6 +23,16 @@ class FavViewController: UIViewController, FavDelegate, UITableViewDataSource, U
        // table?.delegate = self
         source.delegate = self
         source.getFav()
+        
+        refreshControl = UIRefreshControl()
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.addTarget(self, action: #selector(self.refresh), for: UIControlEvents.valueChanged)
+        table?.addSubview(refreshControl)
+    }
+    
+    @objc func refresh(sender:AnyObject) {
+        source.getFav()
+        refreshControl.endRefreshing()
     }
     
     func didFetch(favs: [Recipe]) {
