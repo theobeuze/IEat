@@ -8,13 +8,13 @@
 
 import UIKit
 
-class HomeViewController: UIViewController, RecipesDelegate, UITableViewDataSource, UISearchBarDelegate {
+class HomeViewController: UIViewController, RecipesDelegate, UITableViewDataSource, UISearchBarDelegate, UITableViewDelegate {
     
     @IBOutlet var table: UITableView?
     
     let source = RecipesRetriever()
     var recipes: [Recipe]?
-    var recipesDictionary = [String: [String]]()
+    var recipesDictionary = [String: [Recipe]]()
     var recipesSectionTitles = [String]()
     var serachingArray: [String]!
     let searchController = UISearchController(searchResultsController: nil)
@@ -24,6 +24,7 @@ class HomeViewController: UIViewController, RecipesDelegate, UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         table?.dataSource = self
+        table?.delegate = self
         source.delegate = self
         source.getRecipes()
         searchController.searchResultsUpdater = self
@@ -38,10 +39,10 @@ class HomeViewController: UIViewController, RecipesDelegate, UITableViewDataSour
         for recipe in recipes {
             let recipeKey = String(recipe.name!.prefix(1))
             if var recipeValues = recipesDictionary[recipeKey] {
-                recipeValues.append(recipe.name!)
+                recipeValues.append(recipe)
                 recipesDictionary[recipeKey] = recipeValues
             } else {
-                recipesDictionary[recipeKey] = [recipe.name!]
+                recipesDictionary[recipeKey] = [recipe]
             }
             test.append(recipe)
         }
@@ -81,7 +82,7 @@ class HomeViewController: UIViewController, RecipesDelegate, UITableViewDataSour
             cell.textLabel?.text = recipe.name
         } else {
             let recipeKey = recipesSectionTitles[indexPath.section]
-            cell.textLabel?.text = recipesDictionary[recipeKey]?[indexPath.row]
+            cell.textLabel?.text = recipesDictionary[recipeKey]?[indexPath.row].name
         }
         return cell
     }
@@ -124,6 +125,21 @@ class HomeViewController: UIViewController, RecipesDelegate, UITableViewDataSour
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "CreateRecipe") {
             _ = segue.destination as! CreateRecipeController
+        }
+        if segue.identifier == "homeToDetail" {
+            let destinationVC = segue.destination as? DetailViewController
+            let recipe = sender as? Recipe
+            destinationVC?.recipe = recipe
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if isFiltering() {
+            let recipe = filteredRecipes[indexPath.row]
+            self.performSegue(withIdentifier: "homeToDetail", sender: recipe)
+        } else {
+            let recipeKey = recipesSectionTitles[indexPath.section]
+            self.performSegue(withIdentifier: "homeToDetail", sender: recipesDictionary[recipeKey]?[indexPath.row])
         }
     }
 }

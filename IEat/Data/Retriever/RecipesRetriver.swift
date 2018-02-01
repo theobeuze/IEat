@@ -30,18 +30,26 @@ class RecipesRetriever {
                 
                 if let json = json {
                     var recipes = [Recipe]()
-                    for var fav in json {
-                        let newFav = Recipe()
-                        if let name = fav["name"] as? String {
-                            newFav.name = name
+                    for var recipe in json {
+                        let newRecipe = Recipe()
+                        var newIngredients = [Ingredient]()
+                        var newSteps = [Step]()
+                        if let name = recipe["name"] as? String {
+                            newRecipe.name = name
                         }
-                        if let ingredients = fav["ingredients"] as? [Ingredient] {
-                            newFav.ingredients = ingredients
+                        for case let ingredients in recipe["ingredients"] as! [[String: Any]] {
+                            if let ingredient = Ingredient(json: ingredients) {
+                                newIngredients.append(ingredient)
+                            }
                         }
-                        if let steps = fav["steps"] as? [Step] {
-                            newFav.steps = steps
+                        newRecipe.ingredients = newIngredients
+                        for case let steps in recipe["steps"] as! [[String: Any]] {
+                            if let step = Step(json: steps) {
+                                newSteps.append(step)
+                            }
                         }
-                        recipes.append(newFav)
+                        newRecipe.steps = newSteps
+                        recipes.append(newRecipe)
                     }
                     self?.delegate?.didFetch(recipes: recipes)
                 }

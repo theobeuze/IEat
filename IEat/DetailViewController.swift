@@ -38,7 +38,8 @@ class DetailViewController: UIViewController {
             }
             stepListText.text = steps
         }
-        
+        ingredientListText.isEditable = false
+        stepListText.isEditable = false
     }
 
     

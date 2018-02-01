@@ -16,6 +16,11 @@ class FavViewController: UIViewController, FavDelegate, UITableViewDataSource, U
     
     let source = FavRetriever()
     var favs: [Recipe]?
+    var orderedFavs = [Recipe]()
+    var recipesDictionary = [String: [Recipe]]()
+    var recipesSectionTitles = [String]()
+    
+    let searchController = UISearchController(searchResultsController: nil)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,35 +36,59 @@ class FavViewController: UIViewController, FavDelegate, UITableViewDataSource, U
     }
     
     @objc func refresh(sender:AnyObject) {
+        orderedFavs.removeAll()
+        recipesDictionary.removeAll()
         source.getFav()
         refreshControl.endRefreshing()
     }
     
     func didFetch(favs: [Recipe]) {
-        self.favs = favs
+        for fav in favs {
+            let recipeKey = String(fav.name!.prefix(1))
+            if var recipeValues = recipesDictionary[recipeKey] {
+                recipeValues.append(fav)
+                recipesDictionary[recipeKey] = recipeValues
+            } else {
+                recipesDictionary[recipeKey] = [fav]
+            }
+            orderedFavs.append(fav)
+        }
+        
+        recipesSectionTitles = [String](recipesDictionary.keys)
+        recipesSectionTitles = recipesSectionTitles.sorted(by: { $0 < $1 })
+    
         DispatchQueue.main.sync {
             table?.reloadData()
         }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return recipesSectionTitles.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return favs?.count ?? 0
+        let recipeKey = recipesSectionTitles[section]
+        return (recipesDictionary[recipeKey]?.count)!
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        cell.textLabel?.text = favs?[indexPath.row].name ?? ""
+        let recipeKey = recipesSectionTitles[indexPath.section]
+        cell.textLabel?.text = recipesDictionary[recipeKey]?[indexPath.row].name
         return cell
     }
     
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return recipesSectionTitles[section]
+    }
+    
+    func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+        return recipesSectionTitles
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let fav = favs?[indexPath.row] {
-            self.performSegue(withIdentifier: "FavToDetail", sender: fav)
-        }
+        let recipeKey = recipesSectionTitles[indexPath.section]
+        self.performSegue(withIdentifier: "FavToDetail", sender: recipesDictionary[recipeKey]?[indexPath.row])
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

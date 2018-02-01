@@ -14,7 +14,7 @@ protocol FavDelegate: class {
 
 class FavRetriever {
     
-    let urlString = "https://demo3877077.mockable.io/recipes"
+    let urlString = "https://demo3877077.mockable.io/1/favorites"
     
     weak var delegate: FavDelegate?
     
