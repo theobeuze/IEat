@@ -20,7 +20,7 @@ class FavViewController: UIViewController, FavDelegate, UITableViewDataSource, U
     override func viewDidLoad() {
         super.viewDidLoad()
         table?.dataSource = self
-       // table?.delegate = self
+        table?.delegate = self
         source.delegate = self
         source.getFav()
         
