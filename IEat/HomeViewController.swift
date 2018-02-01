@@ -31,6 +31,7 @@ class HomeViewController: UIViewController, RecipesDelegate, UITableViewDataSour
         searchController.searchBar.placeholder = "Search Recipes"
         navigationItem.searchController = searchController
         definesPresentationContext = true
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Create", style: .plain, target: self, action: #selector(self.pushCreateButton))
     }
     
     func didFetch(recipes: [Recipe]) {
@@ -102,6 +103,17 @@ class HomeViewController: UIViewController, RecipesDelegate, UITableViewDataSour
     func isFiltering() -> Bool {
         return searchController.isActive && !searchBarIsEmpty()
     }
+    
+    @objc func pushCreateButton() {
+        performSegue(withIdentifier: "CreateRecipe", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "CreateRecipe") {
+            let secondController = segue.destination as! CreateRecipeController
+        }
+    }
+
 
 }
 
