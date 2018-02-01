@@ -263,24 +263,36 @@
             </objects>
             <point key="canvasLocation" x="769" y="1021"/>
         </scene>
-        <!--Map View Controller-->
+        <!--Map-->
         <scene sceneID="hNt-Rx-Ax1">
             <objects>
-                <viewController id="Tp1-Xt-YwG" customClass="MapViewController" customModule="IEat" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Tp1-Xt-YwG" customClass="MapViewController" customModule="IEat" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="INg-nJ-ayt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="DzL-vL-yS6">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                            </mapView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="13D-Zj-Lqw" firstAttribute="bottom" secondItem="DzL-vL-yS6" secondAttribute="bottom" id="2eM-6o-AtH"/>
+                            <constraint firstItem="DzL-vL-yS6" firstAttribute="top" secondItem="13D-Zj-Lqw" secondAttribute="top" id="WVX-xn-JsR"/>
+                            <constraint firstItem="DzL-vL-yS6" firstAttribute="leading" secondItem="13D-Zj-Lqw" secondAttribute="leading" id="kHd-Uj-ghT"/>
+                            <constraint firstItem="13D-Zj-Lqw" firstAttribute="trailing" secondItem="DzL-vL-yS6" secondAttribute="trailing" id="rOK-rt-u5u"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="13D-Zj-Lqw"/>
                     </view>
-                    <navigationItem key="navigationItem" id="pzF-wQ-LAx"/>
+                    <navigationItem key="navigationItem" title="Map" id="pzF-wQ-LAx"/>
                     <connections>
+                        <outlet property="map" destination="DzL-vL-yS6" id="gwQ-Sg-ghI"/>
                         <segue destination="mMK-Rw-6Kn" kind="show" identifier="mapToDetail" id="rwF-4y-Naj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dw5-7s-6ZS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1495" y="1030"/>
+            <point key="canvasLocation" x="1493.5999999999999" y="1029.5352323838081"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="ZpW-70-2ag">
