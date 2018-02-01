@@ -55,38 +55,51 @@ class HomeViewController: UIViewController, RecipesDelegate, UITableViewDataSour
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return recipesSectionTitles.count
+        if isFiltering() {
+            return 1
+        } else {
+            return recipesSectionTitles.count
+        }
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let recipeKey = recipesSectionTitles[section]
         if isFiltering() {
             return filteredRecipes.count
         } else {
+            let recipeKey = recipesSectionTitles[section]
             return (recipesDictionary[recipeKey]?.count)!
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        let recipeKey = recipesSectionTitles[indexPath.section]
+        
         let recipe: Recipe
         
         if isFiltering() {
             recipe = filteredRecipes[indexPath.row]
             cell.textLabel?.text = recipe.name
         } else {
+            let recipeKey = recipesSectionTitles[indexPath.section]
             cell.textLabel?.text = recipesDictionary[recipeKey]?[indexPath.row]
         }
         return cell
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return recipesSectionTitles[section]
+         if isFiltering() {
+            return nil
+        } else {
+            return recipesSectionTitles[section]
+        }
     }
     
     func sectionIndexTitles(for tableView: UITableView) -> [String]? {
-        return recipesSectionTitles
+        if isFiltering() {
+            return nil
+        } else {
+            return recipesSectionTitles
+        }
     }
     
     func searchBarIsEmpty() -> Bool {
@@ -110,11 +123,9 @@ class HomeViewController: UIViewController, RecipesDelegate, UITableViewDataSour
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "CreateRecipe") {
-            let secondController = segue.destination as! CreateRecipeController
+            _ = segue.destination as! CreateRecipeController
         }
     }
-
-
 }
 
 extension HomeViewController: UISearchResultsUpdating {
