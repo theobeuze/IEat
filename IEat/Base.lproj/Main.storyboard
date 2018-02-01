@@ -79,7 +79,7 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="First" image="first" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="HomeIcon" id="acW-dT-cKf"/>
                     <navigationItem key="navigationItem" title="IEat" id="RyU-8l-MTf"/>
                     <connections>
                         <outlet property="table" destination="Onx-hV-Xun" id="KQi-f6-dje"/>
@@ -95,7 +95,7 @@
         <scene sceneID="s5X-tu-Lny">
             <objects>
                 <navigationController id="LfR-bT-zYJ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" id="unX-Sg-Uuo"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="HomeIcon" id="unX-Sg-Uuo"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="e2h-OW-bH0">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -250,7 +250,7 @@
         <scene sceneID="E6I-vB-fyr">
             <objects>
                 <navigationController id="thG-sQ-Qew" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Map" id="d20-YS-Vkc"/>
+                    <tabBarItem key="tabBarItem" title="Map" image="Maps" id="d20-YS-Vkc"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="0ql-MD-EsU">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -330,9 +330,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="first" width="30" height="30"/>
+        <image name="HomeIcon" width="30" height="30"/>
+        <image name="Maps" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="CwA-Ca-DbB"/>
+        <segue reference="vKf-85-h0T"/>
     </inferredMetricsTieBreakers>
 </document>
